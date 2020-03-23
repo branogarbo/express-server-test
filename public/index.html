@@ -1,0 +1,23 @@
+<html>
+  <body>
+    
+    <input type="text">
+    <button onclick="submit()">submit</button>
+
+    <script>
+      async function submit() {
+        var inpval = document.querySelector('input').value;
+
+        const options = {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: `{"entry":"${inpval}"}`
+        }
+
+        await fetch('/drop',options);
+      }
+    </script>
+  </body>
+</html>
