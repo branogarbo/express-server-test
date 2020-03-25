@@ -14,7 +14,7 @@ ssh root@<server-ip>
 
 Create user, give user sudo access, move .ssh directory into new account, terminate connection to server.
 ```
-adduser brian && usermod -aG sudo brian && rsync --archive --chown=brian:brian .ssh /home/brian/ && exit
+uname="brian"; adduser $uname && usermod -aG sudo $uname && rsync --archive --chown=$uname:$uname .ssh /home/$uname/ && exit
 ```
 
 Logging in as new user.
@@ -114,7 +114,7 @@ You can use use pm2 to manage the app.
 sudo npm i pm2 -g
 ```
 
-Start the app with pm2
+Start the app with pm2.
 ```
 pm2 start index.js
 ```
